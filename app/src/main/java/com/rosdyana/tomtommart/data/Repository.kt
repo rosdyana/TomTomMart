@@ -7,8 +7,6 @@ import com.rosdyana.tomtommart.utils.ProductSavedType
 class Repository(val dataSource: DataSource, val dataBase: DataBase) {
     fun getFoods() = dataSource.getFoods()
     fun getBeverages() = dataSource.getBeverages()
-    fun getCategories() = dataSource.getCategories()
-    fun getSearchData(keyword: String?) = dataSource.getSearchData(keyword)
 
     fun addToCart(productEntity: ProductEntity, quantity: Int = 1) {
         val productList = dataBase.productDao().getProductById(

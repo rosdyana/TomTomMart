@@ -1,19 +1,10 @@
 package com.rosdyana.tomtommart.data
 
 import com.rosdyana.tomtommart.R
-import com.rosdyana.tomtommart.model.CategoryData
 import com.rosdyana.tomtommart.model.ProductEntity
 import io.reactivex.Observable
 
 class DataSource {
-    fun getCategories(): Observable<ArrayList<CategoryData>> {
-        val foodCategory = CategoryData("Food", R.drawable.iv_foods)
-        val beveragesCategory = CategoryData("Soft Drink", R.drawable.iv_beverages)
-
-        val data = listOf(foodCategory, beveragesCategory)
-        return Observable.just(ArrayList(data))
-    }
-
     fun getBeverages(): Observable<ArrayList<ProductEntity>> {
         val beer = ProductEntity(
             name = "Beer",
@@ -59,19 +50,5 @@ class DataSource {
 
         val data = listOf(potatoChips, chocolate, italianSauce, cornChips)
         return Observable.just(ArrayList(data))
-    }
-
-    fun getSearchData(keyword: String?): Observable<List<ProductEntity>> {
-        val listData = listOf(getFoods(), getBeverages())
-        val resultData = mutableListOf<ProductEntity>()
-
-        return Observable.merge(listData).doOnNext {
-            resultData.addAll(it)
-        }
-            .map {
-                return@map resultData.filter {
-                    it.name.contains(keyword.orEmpty(), true)
-                }
-            }
     }
 }

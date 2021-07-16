@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.rosdyana.tomtommart.data.Repository
-import com.rosdyana.tomtommart.model.CategoryData
+import com.rosdyana.tomtommart.model.ProductEntity
 import io.reactivex.disposables.CompositeDisposable
 
 class ShopViewModel(val repository: Repository) : ViewModel() {
-    private val _categories = MutableLiveData<ArrayList<CategoryData>>()
-    val categories: LiveData<ArrayList<CategoryData>> = _categories
+    private val _foods = MutableLiveData<ArrayList<ProductEntity>>()
+    val foods : LiveData<ArrayList<ProductEntity>> = _foods
+
+    private val _beverages = MutableLiveData<ArrayList<ProductEntity>>()
+    val beverages : LiveData<ArrayList<ProductEntity>> = _beverages
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
@@ -18,14 +21,29 @@ class ShopViewModel(val repository: Repository) : ViewModel() {
         CompositeDisposable()
     }
 
-    fun showDataCategories() {
-        val categoriesDisposable = repository.getCategories()
+    fun showFoodsData() {
+        val foodsDisposable = repository.getFoods()
             .doOnSubscribe { }
             .doFinally { }
             .subscribe(
-                { _categories.postValue(it) },
-                { _errorMessage.postValue(it.localizedMessage) }
+                { _foods.postValue(it) },
+                { _errorMessage.postValue(it.localizedMessage)}
             )
-        compositeDisposable.add(categoriesDisposable)
+        compositeDisposable.add(foodsDisposable)
+    }
+
+    fun showBeveragesData() {
+        val beveragesDisposable = repository.getBeverages()
+            .doOnSubscribe { }
+            .doFinally { }
+            .subscribe(
+                { _beverages.postValue(it) },
+                { _errorMessage.postValue(it.localizedMessage)}
+            )
+        compositeDisposable.add(beveragesDisposable)
+    }
+
+    fun addToCart(productEntity: ProductEntity) {
+        repository.addToCart(productEntity)
     }
 }
