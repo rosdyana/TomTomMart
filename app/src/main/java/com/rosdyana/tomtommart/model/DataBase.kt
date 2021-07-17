@@ -5,9 +5,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.rosdyana.tomtommart.AppController
 
-@Database(entities = [ProductEntity::class], version = 1)
+@Database(entities = [ProductEntity::class, CartEntity::class], version = 1)
 abstract class DataBase : RoomDatabase() {
     abstract fun productDao(): ProductDao
+    abstract fun cartDao(): CartDao
 
     companion object {
         private var dbInstance: DataBase? = null

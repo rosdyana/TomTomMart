@@ -14,6 +14,6 @@ class DetailProductViewModel(val repository: Repository): ViewModel() {
     val errorMessage: LiveData<String> = _errorMessage
 
     fun addToCart(productEntity: ProductEntity) {
-        repository.addToCart(productEntity)
+        repository.addToCart(productEntity.id)
     }
 }

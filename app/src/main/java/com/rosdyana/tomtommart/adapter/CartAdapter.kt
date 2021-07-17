@@ -9,45 +9,45 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.rosdyana.tomtommart.R
 import com.rosdyana.tomtommart.listener.OnClickItemAddRemove
 import com.rosdyana.tomtommart.listener.OnTotalChange
-import com.rosdyana.tomtommart.model.ProductEntity
+import com.rosdyana.tomtommart.model.CartEntity
 import kotlinx.android.synthetic.main.item_cart.view.*
 import java.text.DecimalFormat
 
 class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    private var list: MutableList<ProductEntity> = mutableListOf()
+    private var list: MutableList<CartEntity> = mutableListOf()
     var onClickListener: OnClickItemAddRemove? = null
 
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(productEntity: ProductEntity){
+        fun bind(cartEntity: CartEntity){
             val decimalFormat = DecimalFormat("#.##")
-            val price = decimalFormat.format(productEntity.price)
+            val price = decimalFormat.format(cartEntity.price)
 
             itemView.setOnClickListener {
-                onClickListener?.onClick(productEntity)
+                onClickListener?.onClick(cartEntity)
             }
 
             itemView.btn_delete_cart.setOnClickListener {
-                onClickListener?.onClickRemove(productEntity)
+                onClickListener?.onClickRemove(cartEntity)
             }
 
             itemView.btn_min_cart.setOnClickListener {
-                onClickListener?.onClickSubstract(productEntity)
+                onClickListener?.onClickSubstract(cartEntity)
             }
 
             itemView.btn_plus_cart.setOnClickListener {
-                onClickListener?.onClickAdd(productEntity)
+                onClickListener?.onClickAdd(cartEntity)
             }
 
 
             Glide.with(itemView)
-                .load(productEntity.picture)
+                .load(cartEntity.picture)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .fitCenter()
                 .into(itemView.iv_picture_cart)
-            itemView.tv_name_cart.text = productEntity.name
-            itemView.tv_description_cart.text = productEntity.description
+            itemView.tv_name_cart.text = cartEntity.productName
+            itemView.tv_description_cart.text = cartEntity.description
             itemView.tv_price_cart.text = "NTD $price"
-            itemView.tv_value_cart.text = productEntity.quantity.toString()
+            itemView.tv_value_cart.text = cartEntity.quantity.toString()
         }
     }
 
@@ -65,7 +65,7 @@ class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapte
         return list.size
     }
 
-    fun setDataAdapter(data: List<ProductEntity>) {
+    fun setDataAdapter(data: List<CartEntity>) {
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()
