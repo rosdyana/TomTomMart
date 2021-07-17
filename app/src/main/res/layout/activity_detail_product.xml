@@ -18,7 +18,8 @@
             android:id="@+id/iv_picture_detail"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
-            tools:src="@drawable/iv_foods" />
+            tools:src="@drawable/iv_foods"
+            android:contentDescription="TODO" />
 
     </LinearLayout>
 

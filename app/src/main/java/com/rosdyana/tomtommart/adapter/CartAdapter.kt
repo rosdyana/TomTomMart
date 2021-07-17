@@ -69,7 +69,7 @@ class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapte
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()
-        val total = list.sumOf{it.priceToQty}
+        val total = list.sumOf{it.totalPrice}
         listener.onTotalChange(total)
     }
 }

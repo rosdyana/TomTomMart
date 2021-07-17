@@ -2,6 +2,7 @@ package com.rosdyana.tomtommart.utils
 
 object Constant {
     const val DATA = "data"
+    const val CART = "cart"
     const val SPLASH_SCREEN = 1500L
 }
 

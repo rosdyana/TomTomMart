@@ -11,6 +11,8 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "product")
 data class ProductEntity(
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "pk")
+    var pk: Int = 0,
     @ColumnInfo(name = "id")
     var id: Int = 0,
     @ColumnInfo(name = "name")
@@ -28,5 +30,5 @@ data class ProductEntity(
 
 ) : Parcelable {
 
-    val priceToQty get() = quantity * price
+    val totalPrice get() = quantity * price
 }

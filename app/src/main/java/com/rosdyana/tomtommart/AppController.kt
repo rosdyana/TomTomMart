@@ -5,25 +5,33 @@ import android.content.Context
 import com.rosdyana.tomtommart.di.dataModule
 import com.rosdyana.tomtommart.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
-class AppController: Application() {
+class AppController : Application() {
     override fun onCreate() {
         super.onCreate()
 
         startKoin {
+            androidLogger(Level.NONE)
             androidContext(this@AppController)
-            modules(dataModule)
-            modules(viewModelModule)
+            modules(
+                listOf(
+                    dataModule,
+                    viewModelModule
+                )
+            )
         }
-        appInstance = this
+        INSTANCE = this
     }
-    companion object{
-        private var appInstance: AppController? = null
+
+    companion object {
+        private var INSTANCE: AppController? = null
 
         @JvmStatic
         fun getInstance(): Context {
-            return appInstance as AppController
+            return INSTANCE as AppController
         }
     }
 }

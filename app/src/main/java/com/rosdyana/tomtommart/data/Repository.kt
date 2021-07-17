@@ -4,9 +4,9 @@ import com.rosdyana.tomtommart.model.DataBase
 import com.rosdyana.tomtommart.model.ProductEntity
 import com.rosdyana.tomtommart.utils.ProductSavedType
 
-class Repository(val dataSource: DataSource, val dataBase: DataBase) {
-    fun getFoods() = dataSource.getFoods()
-    fun getBeverages() = dataSource.getBeverages()
+class Repository(val dummyDataSource: DummyDataSource, val dataBase: DataBase) {
+    fun getFoods() = dummyDataSource.getFoods()
+    fun getBeverages() = dummyDataSource.getBeverages()
 
     fun addToCart(productEntity: ProductEntity, quantity: Int = 1) {
         val productList = dataBase.productDao().getProductById(
@@ -47,6 +47,6 @@ class Repository(val dataSource: DataSource, val dataBase: DataBase) {
     }
 
     fun getAllData(type: Int): List<ProductEntity> {
-        return dataBase.productDao().getProducts(type).orEmpty()
+        return dataBase.productDao().getProducts(type)
     }
 }

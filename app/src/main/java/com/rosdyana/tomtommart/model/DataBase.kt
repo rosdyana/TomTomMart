@@ -10,22 +10,18 @@ abstract class DataBase : RoomDatabase() {
     abstract fun productDao(): ProductDao
 
     companion object {
-        private var dbInstance: DataBase? = null
+        private var INSTANCE: DataBase? = null
 
         fun getInstance(): DataBase? {
-            if (dbInstance == null) {
+            if (INSTANCE == null) {
                 synchronized(DataBase::class.java) {
-                    dbInstance = Room.databaseBuilder(
+                    INSTANCE = Room.databaseBuilder(
                         AppController.getInstance().applicationContext,
                         DataBase::class.java, "tomtom_mart.db"
                     ).allowMainThreadQueries().build()
                 }
             }
-            return dbInstance
-        }
-
-        fun destroyInstance() {
-            dbInstance = null
+            return INSTANCE
         }
     }
 }

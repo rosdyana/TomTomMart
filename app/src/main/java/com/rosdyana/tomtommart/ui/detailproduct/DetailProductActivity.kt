@@ -1,16 +1,18 @@
 package com.rosdyana.tomtommart.ui.detailproduct
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.rosdyana.tomtommart.R
 import com.rosdyana.tomtommart.model.ProductEntity
+import com.rosdyana.tomtommart.ui.activity.MainActivity
 import com.rosdyana.tomtommart.utils.Constant
 import kotlinx.android.synthetic.main.activity_detail_product.*
-import java.text.DecimalFormat
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.DecimalFormat
 
 class DetailProductActivity : AppCompatActivity() {
     private val viewModel: DetailProductViewModel by viewModel()
@@ -25,8 +27,6 @@ class DetailProductActivity : AppCompatActivity() {
 
         loadDetailData(product!!)
         addProductToCart(product!!)
-
-//        viewModel.loadDetailData()
     }
 
     private fun loadDetailData(productEntity: ProductEntity) {
@@ -44,6 +44,10 @@ class DetailProductActivity : AppCompatActivity() {
         btn_detail_add_to_cart.setOnClickListener {
             viewModel.addToCart(productEntity)
             Toast.makeText(this, "Product added to cart", Toast.LENGTH_SHORT).show()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.putExtra(Constant.CART, true)
+            startActivity(intent)
+            finish()
         }
     }
 }

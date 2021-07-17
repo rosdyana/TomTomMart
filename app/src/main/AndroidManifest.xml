@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TomTomMart">
         <activity android:name=".ui.detailproduct.DetailProductActivity"></activity>
-        <activity android:name=".ui.product.ProductActivity" />
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
