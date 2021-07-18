@@ -4,9 +4,9 @@ import com.rosdyana.tomtommart.model.DataBase
 import com.rosdyana.tomtommart.model.ProductEntity
 import com.rosdyana.tomtommart.utils.ProductSavedType
 
-class Repository(val dataSource: DataSource, val dataBase: DataBase) {
-    fun getFoods() = dataSource.getFoods()
-    fun getBeverages() = dataSource.getBeverages()
+class Repository(val dummyDataSource: DummyDataSource, val dataBase: DataBase) {
+    fun getFoods() = dummyDataSource.getFoods()
+    fun getBeverages() = dummyDataSource.getBeverages()
 
     fun addToCart(productEntity: ProductEntity, quantity: Int = 1) {
         val productList = dataBase.productDao().getProductById(
@@ -14,15 +14,15 @@ class Repository(val dataSource: DataSource, val dataBase: DataBase) {
             ProductSavedType.CART
         )
 
-        if (productList.isEmpty()) {
+        if (productList == null) {
             val product = productEntity.copy(
                 quantity = quantity,
                 type = ProductSavedType.CART
             )
             dataBase.productDao().insertProduct(product)
         } else {
-            val product = productList[0].copy(
-                quantity = productList[0].quantity + quantity,
+            val product = productList.copy(
+                quantity = productList.quantity + quantity,
                 type = ProductSavedType.CART
             )
             dataBase.productDao().deleteProduct(productEntity)
@@ -47,6 +47,14 @@ class Repository(val dataSource: DataSource, val dataBase: DataBase) {
     }
 
     fun getAllData(type: Int): List<ProductEntity> {
-        return dataBase.productDao().getProducts(type).orEmpty()
+        return dataBase.productDao().getProducts(type)
+    }
+
+    fun getTotalPrice(type: Int): Double {
+        return dataBase.productDao().getTotalPrice(type)
+    }
+
+    fun getTotalCartQty(): Int {
+        return dataBase.productDao().getTotalCartItem()
     }
 }
