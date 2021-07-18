@@ -81,7 +81,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private fun removeFromCart(productEntity: ProductEntity) {
         viewModel.removeProduct(productEntity)
-        Toast.makeText(activity, "Product removed from cart", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "${productEntity.name} removed from cart", Toast.LENGTH_SHORT).show()
         viewModel.loadCartData()
     }
 }

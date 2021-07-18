@@ -43,7 +43,7 @@ class DetailProductActivity : AppCompatActivity() {
     private fun addProductToCart(productEntity: ProductEntity) {
         btn_detail_add_to_cart.setOnClickListener {
             viewModel.addToCart(productEntity)
-            Toast.makeText(this, "Product added to cart", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${productEntity.name} added to cart", Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext, MainActivity::class.java)
             intent.putExtra(Constant.CART, true)
             startActivity(intent)

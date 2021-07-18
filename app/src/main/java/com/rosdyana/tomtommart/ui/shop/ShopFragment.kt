@@ -79,7 +79,7 @@ class ShopFragment : Fragment(R.layout.fragment_shop) {
 
     private fun addProductToCart(productEntity: ProductEntity) {
         viewModel.addToCart(productEntity)
-        Toast.makeText(activity, "Product added to cart", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "${productEntity.name} added to cart", Toast.LENGTH_SHORT).show()
     }
 
     private fun toProductDetail(productEntity: ProductEntity) {
