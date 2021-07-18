@@ -31,5 +31,6 @@ should be available on re-launch of the app.
   - Remove from cart
   - Total price
   - Persistent shopping cart 
+- Unit test
   
   
