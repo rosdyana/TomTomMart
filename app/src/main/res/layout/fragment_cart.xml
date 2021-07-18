@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.cart.CartFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.cart.CartFragment">
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btn_favorite"
         android:layout_marginBottom="2dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My Cart"
-            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/my_cart"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/_16sdp"
-            android:textColor="@color/primary_text"/>
+            android:textStyle="bold" />
 
         <View
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray"/>
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@color/gray" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_cart"/>
+            tools:listitem="@layout/item_cart" />
 
     </LinearLayout>
 
@@ -44,15 +44,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        >
+        android:layout_marginBottom="@dimen/_8sdp">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/total_price"
             android:textColor="@color/secondary_text"
-            android:text="Total Price"
             app:layout_constraintBottom_toTopOf="@+id/tv_total_price"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -62,10 +61,10 @@
             android:id="@+id/tv_total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NTD"
+            android:text="@string/ntd"
             android:textColor="@color/primary_text"
-            android:textStyle="bold"
             android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

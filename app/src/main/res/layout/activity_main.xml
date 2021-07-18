@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroud"
     android:orientation="vertical"
-    tools:context=".ui.activity.MainActivity"
-    android:background="@color/backgroud">
+    tools:context=".ui.activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
@@ -21,12 +20,12 @@
         android:layout_height="@dimen/_52sdp"
         android:layout_marginHorizontal="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        app:elevation="@dimen/_2sdp"
-        android:elevation="@dimen/_16sdp"
         android:background="@drawable/bg_bottom_nav_bar"
+        android:elevation="@dimen/_16sdp"
+        app:elevation="@dimen/_2sdp"
         app:itemIconTint="@drawable/bottom_nav_selector"
         app:itemTextColor="@drawable/bottom_nav_selector"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_bottom_nav"/>
+        app:menu="@menu/menu_bottom_nav" />
 
 </LinearLayout>

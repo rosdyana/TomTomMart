@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TomTom Mart</string>
-    <string name="shop">Shop</string>
-    <string name="cart">Cart</string>
     <string name="tomtom_mart">TomTom Mart</string>
     <string name="foods">Foods</string>
     <string name="beverages">Beverages</string>
@@ -9,6 +7,4 @@
     <string name="total_price">Total Price</string>
     <string name="ntd">NTD</string>
     <string name="add_to_cart">Add To Cart</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <!-- TODO: Remove or change this placeholder text -->
 </resources>

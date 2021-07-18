@@ -14,7 +14,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tomtom_mart"
+                android:textStyle="bold"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/primary_text"/>
 
             <LinearLayout
                 android:layout_marginTop="@dimen/_16sdp"
@@ -27,7 +37,7 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Foods"
+                    android:text="@string/foods"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold"
                     android:textSize="@dimen/_14sdp"/>
@@ -55,7 +65,7 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Beverages"
+                    android:text="@string/beverages"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold"
                     android:textSize="@dimen/_14sdp"/>

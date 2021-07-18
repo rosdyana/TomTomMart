@@ -45,7 +45,7 @@
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"
-                        tools:text="Natural Red Apple" />
+                        tools:text="Cola" />
 
                     <ImageView
                         android:id="@+id/btn_delete_cart"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_16sdp"
                     android:textColor="@color/secondary_text"
-                    tools:text="1kg, Price" />
+                    tools:text="No sugar." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"
                         tools:ignore="RtlHardcoded"
-                        tools:text="Rp.25.000" />
+                        tools:text="NTD 10" />
 
                 </LinearLayout>
 

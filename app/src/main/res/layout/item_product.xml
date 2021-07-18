@@ -30,7 +30,7 @@
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
-            tools:text="Organic Bananas" />
+            tools:text="Corn Chips" />
 
         <TextView
             android:id="@+id/tv_product_description"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:textColor="@color/secondary_text"
-            tools:text="7pcs, Priceg" />
+            tools:text="Family package" />
 
     </LinearLayout>
 
@@ -57,7 +57,7 @@
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
-            tools:text="Rp.20.000" />
+            tools:text="NTD 20" />
 
         <ImageView
             android:id="@+id/btn_product_add_to_cart"

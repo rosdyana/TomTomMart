@@ -18,15 +18,15 @@
             android:id="@+id/iv_picture_detail"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
-            tools:src="@drawable/iv_foods"
-            android:contentDescription="TODO" />
+            android:contentDescription="TODO"
+            tools:src="@drawable/iv_foods" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -44,7 +44,7 @@
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
-                tools:text="Natural Red Apple" />
+                tools:text="Burger Queen" />
         </LinearLayout>
 
         <TextView
@@ -53,20 +53,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
             android:textColor="@color/secondary_text"
-            tools:text="1kg, Price" />
+            tools:text="Halal (No pork)" />
 
         <TextView
             android:id="@+id/tv_price_detail"
             android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginStart="@dimen/_16sdp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:gravity="right|center"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded"
-            tools:text="Rp.25.000" />
+            tools:text="NTD 60" />
 
         <View
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
         android:background="@drawable/bg_button_green"
         android:clickable="true"
         android:focusable="true"
-        android:text="Add To Cart"
+        android:text="@string/add_to_cart"
         android:textAllCaps="false" />
 
 </LinearLayout>
