@@ -1,5 +1,6 @@
 package com.rosdyana.tomtommart.ui.cart
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private val cartAdapter: CartAdapter by lazy {
         CartAdapter(object : OnTotalChange {
+            @SuppressLint("SetTextI18n")
             override  fun onTotalChange(total: Double) {
                 val decimalFormat = DecimalFormat("#.##")
                 val price = decimalFormat.format(total)

@@ -1,5 +1,6 @@
 package com.rosdyana.tomtommart.ui.detailproduct
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,7 @@ class DetailProductActivity : AppCompatActivity() {
         addProductToCart(product!!)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun loadDetailData(productEntity: ProductEntity) {
         val decimalFormat = DecimalFormat("#.##")
         val price = decimalFormat.format(productEntity.price)

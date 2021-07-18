@@ -11,7 +11,6 @@ class DetailProductViewModel(val repository: Repository): ViewModel() {
     val detailProduct: LiveData<ArrayList<ProductEntity>> = _detailProduct
 
     private val _errorMessage = MutableLiveData<String>()
-    val errorMessage: LiveData<String> = _errorMessage
 
     fun addToCart(productEntity: ProductEntity) {
         repository.addToCart(productEntity)

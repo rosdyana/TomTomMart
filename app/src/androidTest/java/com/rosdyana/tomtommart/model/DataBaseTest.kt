@@ -6,13 +6,11 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.rosdyana.tomtommart.data.DummyDataSource
 import com.rosdyana.tomtommart.data.Repository
-import com.rosdyana.tomtommart.ui.cart.CartViewModel
 import com.rosdyana.tomtommart.utils.ProductSavedType
 import junit.framework.TestCase
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.internal.runners.JUnit4ClassRunner
 import org.junit.runner.RunWith
 import java.io.IOException
 

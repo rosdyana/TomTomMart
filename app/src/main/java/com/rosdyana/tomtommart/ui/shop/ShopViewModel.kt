@@ -15,7 +15,6 @@ class ShopViewModel(val repository: Repository) : ViewModel() {
     val beverages : LiveData<ArrayList<ProductEntity>> = _beverages
 
     private val _errorMessage = MutableLiveData<String>()
-    val errorMessage: LiveData<String> = _errorMessage
 
     private val compositeDisposable by lazy {
         CompositeDisposable()

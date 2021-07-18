@@ -1,5 +1,6 @@
 package com.rosdyana.tomtommart.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +14,14 @@ import com.rosdyana.tomtommart.model.ProductEntity
 import kotlinx.android.synthetic.main.item_cart.view.*
 import java.text.DecimalFormat
 
-class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(val listener: OnTotalChange) :
+    RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     private var list: MutableList<ProductEntity> = mutableListOf()
     var onClickListener: OnClickItemAddRemove? = null
 
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(productEntity: ProductEntity){
+        @SuppressLint("SetTextI18n")
+        fun bind(productEntity: ProductEntity) {
             val decimalFormat = DecimalFormat("#.##")
             val price = decimalFormat.format(productEntity.price)
 
@@ -53,7 +56,7 @@ class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapte
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.CartViewHolder {
         val view: View =
-        LayoutInflater.from(parent.context).inflate(R.layout.item_cart, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_cart, parent, false)
         return CartViewHolder(view)
     }
 
@@ -69,7 +72,7 @@ class CartAdapter(val listener : OnTotalChange): RecyclerView.Adapter<CartAdapte
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()
-        val total = list.sumOf{it.totalPrice}
+        val total = list.sumOf { it.totalPrice }
         listener.onTotalChange(total)
     }
 }

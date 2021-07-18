@@ -1,5 +1,6 @@
 package com.rosdyana.tomtommart.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
     var onClickListener: OnClickItemAndAdd? = null
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(productEntity: ProductEntity) {
             val decimalFormat = DecimalFormat("#.##")
             val price = decimalFormat.format(productEntity.price)
